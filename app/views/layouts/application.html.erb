@@ -24,7 +24,7 @@
       Splurting out kick-ass movie quotes for peace, love fun and laughter
     </div>
     <div class="col-xs-5 links">
-      <%= link_to 'Contribute', new_quote_path %>
+      <%= link_to 'Contribute', "#", data: {toggle: 'modal', target:'#myModal'} %>
       <%= link_to 'About', about_path %>
     </div>
   </header>
@@ -50,6 +50,31 @@
       Proudly hacked in Singapore by <a href="#">Joshua</a><br />
       Check out my <a href="https://github.com/tohyung85">Github page</a>
     </div>    
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Contribute Your Quote</h4>
+      </div>
+      <div class="modal-body">
+        <h1>Enter Your Quote Details</h1>
+        <%= simple_form_for Quote.new do |f| %>
+        <div class="modal-body">
+          <%= f.input :saying %>
+          <%= f.input :author %>
+        </div>  
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit :'Create', class: 'btn btn-danger' %>
+        </div>          
+        <% end %>
+      </div>      
+    </div>
   </div>
 </div>
 
